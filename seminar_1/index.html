@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="block">
+        <p class="www">1</p>
+        <p class="www">2</p>
+    </div>
+
+    <a class="link" href="#">link text html</a>
+
+    <img class="photo" width="330px" height="330px" src="" alt=""> -->
+
+    <div class="content"></div>
+
+    <script>
+        // Example #1
+        // const idEl = document.querySelector('#block p:first-child');
+        // console.log(idEl);
+        // const textEl = document.querySelector('.www:first-child')
+        // console.log(textEl);
+
+        // Example #2
+        // const linkTextElement = document.querySelector('.link');
+        // linkTextElement.textContent = 'link text js';
+        // console.log(linkTextElement);
+        // linkTextElement.href = "https://developer.mozilla.org/ru/";
+
+        // const photoElement = document.querySelector('.photo');
+        // photoElement.src = "sute-mouse-dj-disco-dancing-generative-ai-scaled.jpg";
+
+        // Example #3
+        const divElement = document.querySelector('.content');
+        // const pElement = document.createElement('p');
+        // pElement.textContent = 'Новый текстовый элемент';
+        // divElement.appendChild(pElement);
+        // divElement.removeChild(pElement);
+
+        // Example #4
+        const buttonElement = document.createElement('button');
+        buttonElement.textContent = 'Отправить';
+        divElement.appendChild(buttonElement);
+
+        // let count = 0;
+        // buttonElement.onclick = function () {
+        //     console.log(++count);
+        // }
+
+        // Example #5
+        buttonElement.onclick = function () {
+            buttonElement.textContent = "Текст отправлен";
+        }
+        </script>
+</body>
+</html>
