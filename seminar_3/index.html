@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button class="button">Send</button> -->
+
+    <!-- <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
+    <button class="button4">4</button>
+    <button class="button5">5</button> -->
+
+    <!-- <button class="add-h1">Добавить</button> -->
+
+    <script>
+        // Example #1
+        // window.addEventListener('load', function (e) {
+        //     console.log('Страница загрузилась');
+        // });
+
+        // const buttonEl = document.querySelector('.button');
+
+        // buttonEl.onclick = function  () {
+        //     console.log('событие onlick');
+        // }
+
+        // buttonEl.addEventListener('click', function (e) {
+        //     console.log('событие addEventListener');
+        // });
+
+        // Example #2
+
+        // const btnElement = document.querySelectorAll('.button');
+
+        // btnElement.forEach(element => {
+        //     element.addEventListener('click', function (e) {
+        //         const target = e.target;
+        //         console.log(target);
+        //     });
+        // });
+
+        // const button4El = document.querySelector('.button4');
+        
+        // let count = 0;
+        // button4El.addEventListener('click', function (e) {
+        //     ++count;
+        //     console.log(`На меня нажали ${count} раз`);
+        // });
+
+        // const button5El = document.querySelector('.button5');
+
+        // button5El.addEventListener('click', function (e) {
+        //     button5El.textContent = 'Вы нажали на эту кнопку';
+        // });
+    
+        // Example #3
+        // const bodyElement = document.querySelector('body');
+
+        // const buttonAddH1Element = document.createElement('button');
+        // buttonAddH1Element.classList.add('add-h1');
+        // bodyElement.appendChild(buttonAddH1Element);
+
+        // const h1Element = document.createElement('h1');
+        // buttonAddH1Element.textContent = 'Добавить';
+
+        // buttonAddH1Element.addEventListener('click', function (e) {
+        //     h1Element.textContent = 'Новый заголовок';
+        //     buttonAddH1Element.parentElement.appendChild(h1Element);
+        // });
+
+        // const buttonDelH1Element = document.createElement('button');
+        // buttonDelH1Element.textContent = 'Удалить';
+        // buttonAddH1Element.classList.add('del-h1');
+        // bodyElement.appendChild(buttonDelH1Element);
+
+        // buttonDelH1Element.addEventListener('click', function (e) {
+        //     buttonDelH1Element.parentElement.removeChild(h1Element);
+        // });
+
+        // const buttonMouseElement = document.createElement('button');
+        // buttonMouseElement.textContent = 'Наведи на меня';
+        // bodyElement.parentElement.appendChild(buttonMouseElement);
+
+        // buttonMouseElement.addEventListener('mouseenter', function (e) {
+        //     console.log('Ты навёл на меня!');
+        // });
+        
+        // buttonMouseElement.addEventListener('mouseleave', function (e) {
+        //     console.log('Ты убежал от меня!');
+        // });
+
+        // Example #4
+        const ulEl = document.createElement('ul');
+        ulEl.classList.add('ul')
+        const bodyEl = document.querySelector('body');
+        bodyEl.append(ulEl);
+        for (let i = 1; i < 4; i++) {
+            const liEl = document.createElement('li');
+            liEl.textContent = i;
+            liEl.classList.add('li');
+            ulEl.appendChild(liEl);
+        }
+
+        const btnEl = document.createElement('button');
+        btnEl.textContent = 'Добавить новый элемент списка';
+        bodyEl.append(btnEl);
+        let counter = 0;
+        btnEl.addEventListener('click', function (e) {
+            counter++;
+            for (let i = 0; i < 1; i++) {
+                const liElement = document.createElement('li');
+                liElement.classList.add('new_li');
+                liElement.textContent = `новый элемент списка ${counter}`;
+                ulEl.appendChild(liElement);
+            }
+        });
+
+        const btnEl2 = document.createElement('button');
+        btnEl2.textContent = 'Удалить первый элемент списка';
+        bodyEl.append(btnEl2);
+        btnEl2.style.marginLeft = '16px';
+        btnEl2.addEventListener('click', function (e) {
+            ulEl.removeChild(ulEl.firstElementChild);
+        });
+
+        const btnAddClick = document.createElement('button');
+        btnAddClick.textContent = 'Добавить класс click';
+        bodyEl.append(btnAddClick);
+        btnAddClick.style.marginLeft = '16px';
+        btnAddClick.addEventListener('click', function (e) {
+            btnAddClick.classList.add('click');
+        });
+    </script>
+</body>
+</html>
