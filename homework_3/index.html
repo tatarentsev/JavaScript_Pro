@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 5</title>
+</head>
+
+<body>
+    <p class="super_element">Привет</p>
+
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+    <img width="130px" src="MainBefore.jpg" alt="">
+
+    <br>
+
+    <button>Кнопка</button>
+    <button class="super_element">Кнопка с классом btn</button>
+    <button>Кнопка</button>
+
+    <br>
+    <textarea></textarea>
+    <br>
+
+    <ul>
+        <li>
+            <button>Кнопка 1</button>
+        </li>
+        <li>
+            <button>Кнопка 2</button>
+        </li>
+        <li>
+            <button>Кнопка 3</button>
+        </li>
+        <li>
+            <button>Кнопка 4</button>
+        </li>
+    </ul>
+
+    <script>
+        // 1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все теги будут созданы браузером.
+
+        window.addEventListener('DOMContentLoaded', function (e) {
+            console.log('Все теги прогрузились');
+        });
+
+        // 2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все ресурсы страницы будут загружены.
+
+        window.addEventListener('load', function (e) {
+            console.log('Страница загрузилась');
+        });
+
+        // 3. При клике на какой-либо тег на странице в консоль должно выводиться сообщение следующего вида:
+
+        const bodyEl = document.querySelector('body');
+        const bodyChildrenEl = bodyEl.children;
+        const superElement = document.querySelector('.super_element');
+
+        // ○ Класс "super_element" присутствует в элементе "div".
+
+        bodyEl.addEventListener('click', function () {
+            let flagOfSuperEl = false;
+            for (let i = 0; i < bodyChildrenEl.length; i++) {
+                if (bodyChildrenEl[i].className == 'super_element') {
+                    flagOfSuperEl = true;
+                    break;
+                } 
+            }
+            
+            if (flagOfSuperEl == true) {
+                console.log('○ Класс "super_element" присутствует в элементе div');
+            } else {
+                console.log('○ Класс "div" не имеет класса "super_element');
+            }
+        });
+        
+        // ○ Сообщение должно определять присутствует ли класс "super_element" у элемента и выводить в нижнем регистре верный тег в данной строке, по
+        // которому был совершен клик.
+
+        bodyEl.addEventListener('click', function (e) {
+            const target = e.target;
+            
+            if (target.className == 'super_element') {
+                console.log('У данного элемента присутствует класс "super_element"');
+            } else {
+                console.log('У данного элемента НЕТ класса "super_element"');
+            }
+        });
+
+        // ○ Необходимо использовать делегирование.
+
+        // 4. Сделайте так, чтобы при наведении на <textarea> в консоли появлялось сообщение: "Вы навели на textarea."
+
+        const textAreaElement = bodyEl.querySelector('textarea');
+        textAreaElement.addEventListener('mouseover', function (e) {
+            console.log('Вы навели на textarea');
+        });
+
+        // 5. Необходимо повесить событие клика на тег <ul>. В обработчике события в  консоль выводите текст, который записан внутри элемента кнопки, по которой
+        // был произведен клик. Если клик был не по кнопке, то ничего выводить не нужно. Необходимо использовать делегирование.
+
+        const ulElement = bodyEl.querySelector('ul');
+        ulElement.addEventListener('click', function (e) {
+            const target = e.target;
+            console.log(target.textContent);
+        });
+
+        // 6. Вопрос: Почему в console.log сначала пишется текст из 5 задания и только потом текст из 3 задания, если мы кликаем по кнопкам в <ul>? Ответ
+        // необходимо написать здесь же, под этим комментарием, своими словами.
+
+        // Я думаю 1. Не использовал делегирование. 2. Объёмней код, два eventLister, создание переменных и тд
+
+        // 7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега <li>.
+
+        for (let j = 0; j < ulElement.children.length; j++) {
+            if (j % 2 == 0) {
+                ulElement.children[j].style.backgroundColor = 'black';
+            } else {
+                continue;
+            }
+        }
+    </script>
+</body>
+</html>
