@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 5</title>
+    <style>
+        .error {
+            border: 2px solid red;
+            outline: none;
+        }
+
+        .animate_animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .animate_fadeInLeftBig {
+            @keyframes fadeInLeftBig {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-1000px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* animation-name: fadeInLeftBig; */
+        }
+    </style>
+</head>
+
+<body>
+    <input id="from" type="text">
+    В инпуте написано: <span class="after_input"></span>
+    <br>
+
+    <button class="messageBtn">Показать блок</button>
+
+    <div class="message">
+        Привет :)
+    </div>
+
+    <br>
+
+    <form action="#">
+        <label>
+            Первый инпут:
+            <input class="form-control" type="text">
+        </label>
+
+        <br>
+        <br>
+
+        <label>
+            Второй инпут:
+            <select class="form-control">
+                <option value=""></option>
+                <option value="1">Один</option>
+                <option value="2">Два</option>
+            </select>
+        </label>
+
+        <br>
+        <br>
+
+        <button class="button_submit" type="submit">Отправить</button>
+    </form>
+
+    <script>
+        // 1. При изменении значения в <input> с id="from", значение, содержащееся в нем, должно моментально отображаться в <span>.
+
+        const inputElement = document.querySelector('#from');
+        const afterInputTextElement = document.querySelector('.after_input');
+
+        inputElement.addEventListener('input', function (e) {
+            // ○ Это значит, что при каждом изменении текста в инпуте, текст в <span> должен обновляться соответственно.
+            afterInputTextElement.textContent = inputElement.value;
+        });
+
+        // 2.
+
+        const messageButtonElement = document.querySelector('.messageBtn');
+        const messageElement = document.querySelector('.message');
+
+
+        messageButtonElement.addEventListener('click', function (e) {
+            // ○ Добавить два класса: animate_animated и animate_fadeInLeftBig.
+            messageElement.classList.add('animate_animated');
+            messageElement.classList.add('animate_fadeInLeftBig');
+            // ○ Установить стиль visibility в значение 'visible'.
+            messageElement.style.visibility = 'visible';
+        });
+
+        // 3. 
+
+        const lastInputElement = document.querySelectorAll('.form-control');
+        const buttonSubmitElement = document.querySelector('.button_submit');
+    
+        // При отправке формы проверьте, заполнены ли все поля.
+        buttonSubmitElement.addEventListener('click', function (e) {
+            lastInputElement.forEach(element => {
+                if (!element.value) { 
+                    // ○ Незаполненные поля должны быть подсвечены (добавлен класс error).
+                    element.classList.add('error');
+                    // ○ Если какое-либо поле не заполнено, форма не должна отправляться.
+                    e.preventDefault();
+                } else {
+                    console.log('OKAY');
+                }
+            });
+        });
+      
+        // ○ Как только пользователь начинает заполнять поле, выполните проверку:
+        lastInputElement.forEach(element => {
+            element.addEventListener('input', function (e) {
+                if (!element.value) {
+                    // ■ Если поле пустое, подсветите его (добавьте класс error).
+                    element.classList.add('error');
+                } else {
+                    // ■ Если поле заполнено, уберите подсветку (удалите класс error). 
+                    element.classList.remove('error');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
