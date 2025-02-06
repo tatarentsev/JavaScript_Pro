@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="#">
+    
+        <input type="checkbox" id="check">
+        <label for="check">Согласен с условиями</label>
+        <br>
+        <button>Отправить</button>
+    </form> -->
+
+    <!-- <form action="#">
+        <input class="tea" id="radio1" type="radio" name="beverages">
+        <label class="text" for="radio1">Чай</label>
+
+        <input class="coffee" id="radio2" type="radio" name="beverages">
+        <label class="text" for="radio2">Кофе</label>
+
+        <br>
+        <button class="button_send">Отправить</button>
+    </form> -->
+
+    <form class="form_pass" action="#">
+        <input id="pass" type="password" placeholder="Введите пароль">
+    </form>
+
+    <!-- <form action="#">
+        <input type="text">
+        <h1>Заголовок</h1>
+    </form> -->
+
+    <script>
+        // Example #1
+        // const formEl = document.querySelector('form');
+        // const inputEl = formEl.querySelector('input');
+        // const buttonEl = formEl.querySelector('button');
+
+        // buttonEl.addEventListener('click', function (e) {
+        //     if (inputEl.checked) {
+        //         console.log('Nice bro');
+        //     } else {
+        //         alert('Необходимо согласиться с условиями');
+        //         e.preventDefault();
+        //     }
+        // });
+
+        // Example #2
+        // const teaEl = document.querySelector('.tea');
+        // const coffeeEl = document.querySelector('.coffee');
+        // const buttonElement = document.querySelector('.button_send');
+
+        // buttonElement.addEventListener('click', function (e) {
+        //     (teaEl.checked) ? console.log('Tea of') : console.log('Coffee of');;
+        // });
+
+        // Example #3
+        const formPassEl = document.querySelector('.form_pass');
+        const inputPassEl = formPassEl.querySelector('#pass');
+        const h2El = document.createElement('h2');
+        h2El.textContent = 'Пароль неверный';
+
+        inputPassEl.addEventListener('input', function (e) {
+            if (inputPassEl.value == 'пароль') {
+                inputPassEl.style.border = '5px solid green';
+            } else {
+                inputPassEl.style.border = '5px solid red';
+                formPassEl.appendChild(h2El);
+            }
+        });
+
+        // Example #4
+        // const formElement = document.querySelector('form');
+        // const inputElement = formElement.querySelector('input');
+        // const h1El = formElement.querySelector('h1'); 
+
+        // formElement.addEventListener('input', function (e) {
+        //     h1El.textContent = inputElement.value;
+        // });
+    </script>
+</body>
+</html>
