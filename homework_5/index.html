@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+    <style>
+        /* Стили по желанию */
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            gap: 16px;
+            justify-content: center;
+            grid-template-columns: repeat(6, 290px);
+        }
+
+        li {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products List</h1>
+    <ul id="product-list">
+        <!-- Сюда будут добавляться продукты -->
+    </ul>
+
+
+    <script src="data.js"></script>
+
+    <script>
+        data.forEach(element => {
+            const ulElement = document.querySelector('ul');
+
+            const liElemenent = document.createElement('li');
+
+            const imgElement = document.createElement('img');
+            imgElement.style.width = '100px';
+            const h1Element = document.createElement('h1');
+            const descElement = document.createElement('p');
+            const priceElement = document.createElement('p');
+            const buttonElement = document.createElement('button');
+
+            ulElement.appendChild(liElemenent);
+
+            liElemenent.appendChild(imgElement);
+            imgElement.classList.add('product__img');
+            imgElement.src = element.image;
+
+            liElemenent.appendChild(h1Element);
+            h1Element.textContent = element.title;
+
+            liElemenent.appendChild(descElement);
+            descElement.textContent = element.description;
+
+            liElemenent.appendChild(priceElement);
+            priceElement.textContent = element.price;
+
+            liElemenent.appendChild(buttonElement);
+            buttonElement.textContent = 'Add to Cart';
+        });
+        
+    </script>
+</body>
+
+</html>
