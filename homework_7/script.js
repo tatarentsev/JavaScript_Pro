@@ -44,18 +44,16 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                 data.forEach(dataEl => {
                     if (target.dataset.id == dataEl.id) {
                         cartListEl.insertAdjacentHTML('beforeend', `
-                            <li class="li_el" data-id = "${dataEl.id}">
+                            <li class="li_el" data-element = "${dataEl.id}">
                                 <img src="${dataEl.img}" alt="${dataEl.title} "width="150" height="150">
 
-                                <button class="cross_el" data-id="${dataEl.id}">
+                                <button class="cross_el" data-prod="${dataEl.id}">
                                     X
                                 </button>
 
                                 <h2>${dataEl.title}</h2>
                                 <p>${dataEl.desc}</p>
                                 <p>Price: ${dataEl.price}</p>
-                                <button class="add-to-cart"
-                                data-id="${dataEl.id}">Add to Cart</button>
                             </li>
                 
                         `)
@@ -64,13 +62,13 @@ document.addEventListener('DOMContentLoaded', async (e) => {
                     // 4. Реализуйте функциональность для удаления товаров из корзины при нажатии
                     // на кнопку "X".
                     const liElement = cartListEl.querySelectorAll('.li_el');
-                    const dataIdElement = document.querySelectorAll('[data-id]');
+                    const dataIdElement = document.querySelectorAll('[data-prod]');
                     
                     dataIdElement.forEach(element => {
                         element.addEventListener('click', function (e) {
                             const target = e.target;
                             liElement.forEach(li => {
-                                if (target.dataset.id === li.dataset.id) {
+                                if (target.dataset.prod === li.dataset.element) {
                                     cartListEl.removeChild(li);
                                 }
                             });
