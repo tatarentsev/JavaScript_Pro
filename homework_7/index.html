@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Products List</title>
+    <style>
+        /* Стили по желанию */
+        .li_el {
+            position: relative;
+        }
+
+        .cross_el {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            border: none;
+            outline: none;
+            color: #575757;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .cross_el:hover {
+            background-color: red;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 360px);
+            gap: 24px;
+            justify-content: center;
+        }
+
+        li {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+
+        .cart {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .cart h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products List</h1>
+    <ul id="product-list">
+        <!-- Сюда будут добавляться продукты -->
+    </ul>
+    <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cart-list">
+            <!-- Сюда будут добавляться товары из корзины -->
+        </ul>
+    </div>
+
+    <!-- 1. Продолжите работу с проектом из прошлого задания
+    2. В файле index.html добавьте блок для корзины с классом cart.
+    3. В файле script.js добавьте функциональность для добавления товара в
+    корзину при клике на кнопку "Add to Cart".
+    4. Реализуйте функциональность для удаления товаров из корзины при нажатии
+    на кнопку "X". -->
+
+
+    <!-- Подключение файла script.js -->
+    <script src="script.js"></script>
+</body>
+
+</html>
